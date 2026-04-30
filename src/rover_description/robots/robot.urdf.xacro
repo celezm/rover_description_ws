@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot name="rover" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find rover_description)/urdf/base/robot_base.urdf.xacro"/>
+  <xacro:include filename="$(find rover_description)/urdf/wheels/rover_wheels.urdf.xacro"/>
+  <xacro:include filename="$(find rover_description)/urdf/arm/scara.urdf.xacro"/>
+  <xacro:include filename="$(find rover_description)/urdf/sensors/camera.urdf.xacro"/>
+  <xacro:include filename="$(find rover_description)/urdf/sensors/imu_sensor.urdf.xacro"/>
+
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <xacro:arg name="robot_ns" default=""/>
+  <xacro:arg name="prefix" default=""/>
+
+  <xacro:robot_base/>
+  <xacro:rover_wheels parent="base_link"/>
+  <xacro:scara parent="base_link"/>
+
+  <xacro:sensor_camera node_name="front_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)front_camera_" parent="$(arg prefix)base_link">
+  <origin xyz="1.4 0.0 0.5" rpy="0 0 0"/>
+  </xacro:sensor_camera>
+  <xacro:sensor_camera node_name="arm_camera" node_namespace="$(arg robot_ns)" frame_prefix="$(arg prefix)arm_camera_" parent="$(arg prefix)l3_arm_link" >
+          <origin xyz="0.0 0.0 -0.01" rpy="0 0 0"/>
+  </xacro:sensor_camera>
+
+  <xacro:sensor_imu ns="$(arg robot_ns)" prefix="$(arg prefix)imu_" parent="$(arg prefix)base_link">
+          <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </xacro:sensor_imu> 
+
+<!-- Gazebo ROS control plugins -->
+<xacro:include filename="$(find rover_description)/urdf/ros2_control.urdf.xacro"/>
+
+<!--
+ <xacro:arg name="config_controllers" default="$(find gz_ros2_control_demos)/config/diff_drive_controller.yaml"/> 
+
+<xacro:arg name="config_controllers" default="$(find msr_robot)/config/rover_controllers.yaml"/>
+<xacro:arg name="update_rate" default="100"/>
+<xacro:ros2_control/> -->
+
+</robot>

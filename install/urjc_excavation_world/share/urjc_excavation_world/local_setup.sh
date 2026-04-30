@@ -1,0 +1,1 @@
+/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world/ament_cmake_environment_hooks/local_setup.sh

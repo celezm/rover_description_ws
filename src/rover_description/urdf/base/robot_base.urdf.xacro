@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<robot name="robot_body" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:macro name="robot_base">
+    <xacro:property name="mesh_path" value="file://$(find rover_description)/meshes/dae"/>
+    <!-- <mesh filename="${mesh_path}/Cylinder.004.dae" scale="0.20000 0.20000 1.87500"/> -->
+    <link name="base_footprint"/>
+
+    <joint name="base_footprint_to_base_link" type="fixed">
+        <origin xyz="0 0 1.5" rpy="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+    </joint>
+
+    <link name="base_link"/>
+
+    <joint name="base_link_to_body_link" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="body_link"/>
+    </joint>
+
+    <joint name="body_back_box_link_joint" type="fixed">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-1.45000 0.00000 0.79130"/>
+        <parent link="body_link"/>
+        <child link="body_back_box_link"/>
+    </joint>
+    <joint name="body_front_box_link_joint" type="fixed">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.54967 0.00000 0.79130"/>
+        <parent link="body_link"/>
+        <child link="body_front_box_link"/>
+    </joint>
+    <joint name="body_left_box_link_joint" type="fixed">
+        <origin rpy="0.00000 0.00000 1.57080" xyz="-0.45192 -0.55000 0.79129"/>
+        <parent link="body_link"/>
+        <child link="body_left_box_link"/>
+    </joint>
+    <joint name="body_right_box_link_joint" type="fixed">
+        <origin rpy="0.00000 0.00000 1.57080" xyz="-0.45192 0.55000 0.79129"/>
+        <parent link="body_link"/>
+        <child link="body_right_box_link"/>
+    </joint>
+
+    <link name="body_link">
+        <collision name="body_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+            <box size="3.00000 1.20000 1.00000"/>
+        </geometry>
+        </collision>
+        <inertial>
+        <inertia ixx="10.16667" ixy="0.00000" ixz="0.00000" iyy="41.66667" iyz="0.00000" izz="43.50000"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <mass value="50.00000"/>
+        </inertial>
+        <visual name="body">
+        <material name="Material.005"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+        <geometry>
+            <box size="3.00000 1.20000 1.00000"/>
+        </geometry>
+        </visual>
+    </link>
+
+    <link name="body_front_box_link">
+        <collision name="body_front_box_collision">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 1.20000 0.60000"/>
+            </geometry>
+        </collision>
+        <visual name="body_front_box">
+            <material name="Material.005"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 1.20000 0.60000"/>
+            </geometry>
+        </visual>
+    </link>
+    <link name="body_left_box_link">
+        <collision name="body_left_box_collision">
+            <origin rpy="0.00000 0.00000 -0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 2.10000 0.60000"/>
+            </geometry>
+        </collision>
+        <visual name="body_left_box">
+            <material name="Material.005"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 2.10000 0.60000"/>
+            </geometry>
+        </visual>
+        </link>
+        <link name="body_right_box_link">
+        <collision name="body_right_box_collision">
+            <origin rpy="0.00000 0.00000 -0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 2.10000 0.60000"/>
+            </geometry>
+        </collision>
+        <visual name="body_right_box">
+            <material name="Material.005"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+            <box size="0.10000 2.10000 0.60000"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="body_back_box_link">
+        <collision name="body_back_box_collision">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+                <box size="0.10000 1.20000 0.60000"/>
+            </geometry>
+        </collision>
+        <visual name="body_back_box">
+            <material name="Material.005"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+            <geometry>
+                <box size="0.10000 1.20000 0.60000"/>
+            </geometry>
+        </visual>
+    </link>
+
+    </xacro:macro>
+
+</robot>
