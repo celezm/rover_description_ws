@@ -1,7 +1,8 @@
 import os
+from os import environ, pathsep
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -16,6 +17,15 @@ def generate_launch_description():
 
     description_file = LaunchConfiguration("description_file")
     use_sim_time = LaunchConfiguration("use_sim_time")
+
+    gz_plugin_path = "/opt/ros/jazzy/lib"
+    if "GZ_SIM_SYSTEM_PLUGIN_PATH" in environ:
+        gz_plugin_path += pathsep + environ["GZ_SIM_SYSTEM_PLUGIN_PATH"]
+
+    set_gz_plugin_path = SetEnvironmentVariable(
+        name="GZ_SIM_SYSTEM_PLUGIN_PATH",
+        value=gz_plugin_path
+    )
 
     declare_description_file = DeclareLaunchArgument(
         "description_file",
@@ -80,16 +90,20 @@ def generate_launch_description():
         executable="create",
         output="screen",
         arguments=[
-            "-model", "rover",
-            "-topic", "robot_description",
+            "-name", "rover",
+            "-topic", "/robot_description",
+            "-x", "0",
+            "-y", "0",
+            "-z", "0.2",
         ],
     )
 
     return LaunchDescription([
         declare_description_file,
         declare_use_sim_time,
-        gazebo_world,
+        set_gz_plugin_path, 
         robot_state_publisher,
+        gazebo_world,
         spawn_robot,
         rviz,
     ])

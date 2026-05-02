@@ -29,11 +29,7 @@
 
 <!-- Gazebo ROS control plugins -->
 <xacro:include filename="$(find rover_description)/urdf/ros2_control.urdf.xacro"/>
-
-
-<xacro:arg name="config_controllers" default="$(find gz_ros2_control_demos)/config/diff_drive_controller.yaml"/> 
-
-<xacro:arg name="config_controllers" default="$(find rovver_description)/config/rover_controllers.yaml"/>
+<xacro:arg name="config_controllers" default="$(find rover_description)/config/robot_controllers.yaml"/>
 <xacro:arg name="update_rate" default="100"/>
 <xacro:ros2_control/> 
 
