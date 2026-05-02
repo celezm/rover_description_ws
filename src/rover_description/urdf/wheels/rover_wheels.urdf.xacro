@@ -17,21 +17,21 @@
     </joint>
 
     <joint name="back_left_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="-0.03655 0.06700 -0.01743" xyz="-1.43329 -0.48979 0.41533"/>
         <parent link="axis_left_link"/>
         <child link="back_left_wheel_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="front_left_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="-0.03655 0.06700 -0.01743" xyz="1.55952 -0.54195 0.21447"/>
         <parent link="axis_left_link"/>
         <child link="front_left_wheel_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="mid_left_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="-0.03655 0.06700 -0.01743" xyz="0.06311 -0.51587 0.31490"/>
         <parent link="axis_left_link"/>
         <child link="mid_left_wheel_link"/>
@@ -39,21 +39,21 @@
     </joint>
 
     <joint name="back_right_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="3.14159 -0.02477 -0.00000" xyz="-1.45614 0.52600 0.26402"/>
         <parent link="axis_right_link"/>
         <child link="back_right_wheel_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="front_right_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="3.14159 -0.02477 -0.00000" xyz="1.54294 0.52600 0.33832"/>
         <parent link="axis_right_link"/>
         <child link="front_right_wheel_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="mid_right_wheel_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.0" velocity="20.00"/>
         <origin rpy="3.14159 -0.02477 -0.00000" xyz="0.04340 0.52600 0.30117"/>
         <parent link="axis_right_link"/>
         <child link="mid_right_wheel_link"/>
@@ -222,6 +222,120 @@
       </geometry>
     </visual>
   </link>
+
+    <transmission name="back_left_wheel_link_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_left_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="$back_left_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="back_left_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
+
+    <transmission name="mid_left_wheel_link_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mid_left_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="back_left_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="mid_left_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
+
+    <transmission name="front_left_wheel_link_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_left_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="front_left_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="front_left_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
+
+    <transmission name="back_right_wheel_link_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="back_right_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="back_right_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="back_right_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
+
+    <transmission name="mid_right_wheel_link_joint_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="mid_right_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="mid_right_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="mid_right_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
+
+    <transmission name="front_right_wheel_link_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="front_right_wheel_link_joint" >
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="front_right_wheel_link_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+
+    <gazebo reference="front_right_wheel_link_joint">
+        <mu1>5</mu1>
+        <mu2>5</mu2>
+        <!--kp>2.75e6</kp>
+        <kd>8.25e1</kd>
+        <fdir1>0 0 0</fdir1>
+        <maxContacts>4</maxContacts-->
+    </gazebo>
 
     <material name="Material">
         <color rgba="0.01176 0.01176 0.01176 1.00000"/>
