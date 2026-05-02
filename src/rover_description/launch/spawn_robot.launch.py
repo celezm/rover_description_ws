@@ -1,21 +1,31 @@
+import os
+
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.descriptions import ParameterValue
 
-import launch
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
 from ament_index_python.packages import get_package_share_directory
-from launch.substitutions import LaunchConfiguration
-from launch.actions import ExecuteProcess
-from launch.actions import SetEnvironmentVariable
-import os
+
 
 def generate_launch_description():
-    description_file = LaunchConfiguration("description_file", default="robot.urdf.xacro")
-    use_sim_time = LaunchConfiguration("use_sim_time", default="false")
+
+    description_file = LaunchConfiguration("description_file")
+    use_sim_time = LaunchConfiguration("use_sim_time")
+
+    declare_description_file = DeclareLaunchArgument(
+        "description_file",
+        default_value="robot.urdf.xacro"
+    )
+
+    declare_use_sim_time = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true"
+    )
 
     robot_description_content = Command([
         PathJoinSubstitution([FindExecutable(name="xacro")]),
@@ -27,26 +37,12 @@ def generate_launch_description():
         ]),
     ])
 
-    rviz_config = PathJoinSubstitution([
-        FindPackageShare("rover_description"),
-        "rviz",
-        "robot.rviz"
-    ])
-
     robot_description = {
         "robot_description": ParameterValue(robot_description_content, value_type=str),
         "use_sim_time": use_sim_time,
     }
 
-    joint_state_publisher_node = Node(
-        package="joint_state_publisher",
-        executable="joint_state_publisher",
-        name="joint_state_publisher",
-        output="screen",
-        parameters=[robot_description],
-    )
-
-    robot_state_publisher_node = Node(
+    robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
         name="robot_state_publisher",
@@ -54,37 +50,46 @@ def generate_launch_description():
         parameters=[robot_description],
     )
 
-    rviz_node = Node(
+    rviz_config = PathJoinSubstitution([
+        FindPackageShare("rover_description"),
+        "rviz",
+        "robot.rviz"
+    ])
+
+    rviz = Node(
         package="rviz2",
         executable="rviz2",
         name="rviz2",
         output="screen",
         arguments=["-d", rviz_config],
+        parameters=[{"use_sim_time": use_sim_time}],
     )
 
-    urjc_excavation = launch.actions.IncludeLaunchDescription(
-    launch.launch_description_sources.PythonLaunchDescriptionSource(
-        os.path.join(
-            get_package_share_directory('urjc_excavation_world'),
-            'launch',
-            'urjc_excavation.launch.py')))
-    
-    # Spawning robot
-    gazebo_spawn_robot = Node(
+    gazebo_world = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory("urjc_excavation_world"),
+                "launch",
+                "urjc_excavation_msr.launch.py"
+            )
+        )
+    )
+
+    spawn_robot = Node(
         package="ros_gz_sim",
         executable="create",
         output="screen",
         arguments=[
             "-model", "rover",
             "-topic", "robot_description",
-            "-use_sim_time", "True",
         ],
     )
 
     return LaunchDescription([
-        joint_state_publisher_node,
-        robot_state_publisher_node,
-        rviz_node,
-        urjc_excavation,
-        gazebo_spawn_robot
+        declare_description_file,
+        declare_use_sim_time,
+        gazebo_world,
+        robot_state_publisher,
+        spawn_robot,
+        rviz,
     ])
