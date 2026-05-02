@@ -2,7 +2,10 @@ import os
 from os import environ, pathsep
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, SetEnvironmentVariable
+from launch.actions import (
+    DeclareLaunchArgument, IncludeLaunchDescription,
+    SetEnvironmentVariable, TimerAction
+)
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
@@ -22,11 +25,6 @@ def generate_launch_description():
     if "GZ_SIM_SYSTEM_PLUGIN_PATH" in environ:
         gz_plugin_path += pathsep + environ["GZ_SIM_SYSTEM_PLUGIN_PATH"]
 
-    set_gz_plugin_path = SetEnvironmentVariable(
-        name="GZ_SIM_SYSTEM_PLUGIN_PATH",
-        value=gz_plugin_path
-    )
-
     declare_description_file = DeclareLaunchArgument(
         "description_file",
         default_value="robot.urdf.xacro"
@@ -37,6 +35,7 @@ def generate_launch_description():
         default_value="true"
     )
 
+    # Genera el URDF expandido para pasarlo directamente al spawn con -string
     robot_description_content = Command([
         PathJoinSubstitution([FindExecutable(name="xacro")]),
         " ",
@@ -45,36 +44,15 @@ def generate_launch_description():
             "robots",
             description_file
         ]),
+        " config_controllers:=",
+        PathJoinSubstitution([
+            FindPackageShare("rover_description"),
+            "config",
+            "robot_controllers.yaml"
+        ]),
     ])
 
-    robot_description = {
-        "robot_description": ParameterValue(robot_description_content, value_type=str),
-        "use_sim_time": use_sim_time,
-    }
-
-    robot_state_publisher = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="screen",
-        parameters=[robot_description],
-    )
-
-    rviz_config = PathJoinSubstitution([
-        FindPackageShare("rover_description"),
-        "rviz",
-        "robot.rviz"
-    ])
-
-    rviz = Node(
-        package="rviz2",
-        executable="rviz2",
-        name="rviz2",
-        output="screen",
-        arguments=["-d", rviz_config],
-        parameters=[{"use_sim_time": use_sim_time}],
-    )
-
+    # 1. Gazebo arranca inmediatamente con el mundo
     gazebo_world = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -85,25 +63,32 @@ def generate_launch_description():
         )
     )
 
-    spawn_robot = Node(
-        package="ros_gz_sim",
-        executable="create",
-        output="screen",
-        arguments=[
-            "-name", "rover",
-            "-topic", "/robot_description",
-            "-x", "0",
-            "-y", "0",
-            "-z", "0.2",
-        ],
+    # 2. Spawn del robot usando -string (NO publica en /robot_description)
+    #    Espera 5s a que Gazebo cargue el mundo y el plugin gz_ros2_control
+    #    esté listo para recibir el robot en el EntityComponentManager
+    spawn_robot = TimerAction(
+        period=5.0,
+        actions=[
+            Node(
+                package="ros_gz_sim",
+                executable="create",
+                output="screen",
+                arguments=[
+                    "-name", "rover",
+                    "-string", robot_description_content,  # directo, sin topic
+                    "-x", "0",
+                    "-y", "0",
+                    "-z", "0.2",
+                ],
+            )
+        ]
     )
 
     return LaunchDescription([
         declare_description_file,
         declare_use_sim_time,
-        set_gz_plugin_path, 
-        robot_state_publisher,
-        gazebo_world,
-        spawn_robot,
-        rviz,
+        SetEnvironmentVariable(name="GZ_SIM_SYSTEM_PLUGIN_PATH", value=gz_plugin_path),
+        gazebo_world,   # t=0s  Gazebo + mundo + gz_ros2_control
+        spawn_robot,    # t=5s  robot spawnado con URDF directo
+        # SIN robot_state_publisher → lo lanzas tú después con el launch 2
     ])
