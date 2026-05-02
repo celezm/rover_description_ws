@@ -1,1 +1,0 @@
-/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/ament_cmake_environment_hooks/local_setup.bash

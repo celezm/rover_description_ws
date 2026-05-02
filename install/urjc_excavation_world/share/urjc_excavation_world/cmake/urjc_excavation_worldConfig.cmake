@@ -1,1 +1,0 @@
-/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world/ament_cmake_core/urjc_excavation_worldConfig.cmake

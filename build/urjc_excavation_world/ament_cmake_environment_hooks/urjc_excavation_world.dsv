@@ -1,6 +1,0 @@
-set;GZ_VERSION;
-prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models
-prepend-non-duplicate;GZ_SIM_RESOURCE_PATH;/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/worlds
-prepend-non-duplicate;GZ_SIM_SYSTEM_PLUGIN_PATH;/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/lib
-
-prepend-non-duplicate;LD_LIBRARY_PATH;/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/lib
