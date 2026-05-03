@@ -84,11 +84,28 @@ def generate_launch_description():
         ]
     )
 
+    twist_stamped = Node(
+        package="twist_stamper",
+        executable="twist_stamper",
+        name="twist_stamper",
+        output="screen",
+        parameters=[
+            {
+                "use_sim_time": True,
+            }
+        ],
+        remappings=[
+            ("cmd_vel_out", "/rover_base_control/cmd_vel"),
+            ("cmd_vel_in", "/cmd_vel"),
+        ],
+    )
+
     return LaunchDescription([
         declare_description_file,
         declare_use_sim_time,
         SetEnvironmentVariable(name="GZ_SIM_SYSTEM_PLUGIN_PATH", value=gz_plugin_path),
         gazebo_world,   # t=0s  Gazebo + mundo + gz_ros2_control
         spawn_robot,    # t=5s  robot spawnado con URDF directo
+        twist_stamped
         # SIN robot_state_publisher → lo lanzas tú después con el launch 2
     ])

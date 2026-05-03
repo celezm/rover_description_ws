@@ -71,8 +71,6 @@
       </visual>
     </link>
 
-    <!-- ==================== RUEDAS IZQUIERDAS ==================== -->
-
     <joint name="back_left_wheel_link_joint" type="continuous">
       <limit effort="50.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
@@ -100,7 +98,6 @@
       <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- ==================== RUEDAS DERECHAS ==================== -->
 
     <joint name="back_right_wheel_link_joint" type="continuous">
       <limit effort="50.0" velocity="20.0"/>
@@ -129,7 +126,6 @@
       <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- ==================== LINKS DE RUEDAS (cilindros primitivos) ==================== -->
 
     <link name="back_left_wheel_link">
       <inertial>
@@ -232,8 +228,6 @@
         <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
       </collision>
     </link>
-
-    <!-- ==================== GAZEBO FRICTION ==================== -->
 
     <gazebo reference="back_left_wheel_link">
       <mu1>5</mu1>

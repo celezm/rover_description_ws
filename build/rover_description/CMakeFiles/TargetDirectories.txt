@@ -1,0 +1,9 @@
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/uninstall.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/rover_description_uninstall.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/test.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/edit_cache.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/rebuild_cache.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/list_install_components.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/install.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/install/local.dir
+/home/claudia-elez/Desktop/rover_description_ws/build/rover_description/CMakeFiles/install/strip.dir

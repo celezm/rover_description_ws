@@ -1,0 +1,92 @@
+[0.006s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/claudia-elez/Desktop/rover_description_ws/src/urjc-excavation-world -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world
+[0.045s] -- The C compiler identification is GNU 13.3.0
+[0.085s] -- The CXX compiler identification is GNU 13.3.0
+[0.096s] -- Detecting C compiler ABI info
+[0.160s] -- Detecting C compiler ABI info - done
+[0.165s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.165s] -- Detecting C compile features
+[0.165s] -- Detecting C compile features - done
+[0.173s] -- Detecting CXX compiler ABI info
+[0.246s] -- Detecting CXX compiler ABI info - done
+[0.252s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.252s] -- Detecting CXX compile features
+[0.253s] -- Detecting CXX compile features - done
+[0.255s] -- Found ros_gz_sim: 1.0.22 (/opt/ros/jazzy/share/ros_gz_sim/cmake)
+[0.361s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.410s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.478s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.489s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.502s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.516s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.573s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.576s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.640s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[0.654s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[0.671s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.846s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[0.914s] -- Configuring done (0.9s)
+[0.917s] -- Generating done (0.0s)
+[0.918s] -- Build files have been written to: /home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world
+[0.926s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/claudia-elez/Desktop/rover_description_ws/src/urjc-excavation-world -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world
+[0.926s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world -- -j20 -l20
+[0.955s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world -- -j20 -l20
+[0.956s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world
+[0.961s] -- Install configuration: ""
+[0.961s] -- Execute custom install script
+[0.961s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/launch/urjc_excavation.launch.py
+[0.967s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/launch/urjc_excavation_msr.launch.py
+[0.973s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/launch/view_urjc_excavation.launch.py
+[0.980s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/maps/excavation_urjc.navmap
+[0.988s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/maps/excavation_urjc.pcd
+[0.994s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/blue_cube/meshes/blue_cube.dae
+[1.002s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/blue_cube/model.config
+[1.010s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/blue_cube/model.sdf
+[1.016s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/green_cube/meshes/green_cube.dae
+[1.023s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/green_cube/model.config
+[1.030s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/green_cube/model.sdf
+[1.036s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/red_cube/meshes/red_cube.dae
+[1.042s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/red_cube/model.config
+[1.047s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/red_cube/model.sdf
+[1.052s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.077.jpg
+[1.057s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.079.jpg
+[1.063s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.083.jpg
+[1.069s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.086.jpg
+[1.074s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.087.jpg
+[1.081s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.088.jpg
+[1.088s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.089.jpg
+[1.094s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.090.jpg
+[1.100s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.091.jpg
+[1.105s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.092.jpg
+[1.112s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.093.jpg
+[1.119s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.094.jpg
+[1.124s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.095.jpg
+[1.131s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.098.jpg
+[1.137s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_0.099.jpg
+[1.143s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_1.014.jpg
+[1.150s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_1.016.jpg
+[1.156s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/Image_1.017.jpg
+[1.162s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/URJC_excavation.dae
+[1.168s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/meshes/URJC_excavation.stl
+[1.174s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/model.config
+[1.182s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/models/urjc_excavation/model.sdf
+[1.193s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/worlds/urjc_excavation.sdf
+[1.200s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/worlds/urjc_excavation.world
+[1.206s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/worlds/urjc_excavation_msr.world
+[1.211s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/environment/urjc_excavation_world.dsv
+[1.218s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/ament_index/resource_index/package_run_dependencies/urjc_excavation_world
+[1.225s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/ament_index/resource_index/parent_prefix_path/urjc_excavation_world
+[1.232s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/environment/ament_prefix_path.sh
+[1.238s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/environment/ament_prefix_path.dsv
+[1.245s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/environment/path.sh
+[1.251s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/environment/path.dsv
+[1.257s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/local_setup.bash
+[1.263s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/local_setup.sh
+[1.269s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/local_setup.zsh
+[1.276s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/local_setup.dsv
+[1.283s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/package.dsv
+[1.288s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/ament_index/resource_index/packages/urjc_excavation_world
+[1.294s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.301s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/cmake/urjc_excavation_worldConfig.cmake
+[1.306s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/cmake/urjc_excavation_worldConfig-version.cmake
+[1.312s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/urjc_excavation_world/share/urjc_excavation_world/package.xml
+[1.320s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/claudia-elez/Desktop/rover_description_ws/build/urjc_excavation_world
