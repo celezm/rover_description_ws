@@ -52,7 +52,6 @@ def generate_launch_description():
         ]),
     ])
 
-    # 1. Gazebo arranca inmediatamente con el mundo
     gazebo_world = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -63,9 +62,6 @@ def generate_launch_description():
         )
     )
 
-    # 2. Spawn del robot usando -string (NO publica en /robot_description)
-    #    Espera 5s a que Gazebo cargue el mundo y el plugin gz_ros2_control
-    #    esté listo para recibir el robot en el EntityComponentManager
     spawn_robot = TimerAction(
         period=5.0,
         actions=[
@@ -75,7 +71,7 @@ def generate_launch_description():
                 output="screen",
                 arguments=[
                     "-name", "rover",
-                    "-string", robot_description_content,  # directo, sin topic
+                    "-string", robot_description_content,
                     "-x", "0",
                     "-y", "0",
                     "-z", "0.2",
@@ -100,12 +96,28 @@ def generate_launch_description():
         ],
     )
 
+    imu_bridge = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        name="imu_bridge",
+        output="screen",
+        arguments=[
+            "/imu@sensor_msgs/msg/Imu@gz.msgs.IMU",
+        ],
+        parameters=[
+            {
+                "use_sim_time": use_sim_time,
+            }
+        ],
+    )
+
     return LaunchDescription([
         declare_description_file,
         declare_use_sim_time,
         SetEnvironmentVariable(name="GZ_SIM_SYSTEM_PLUGIN_PATH", value=gz_plugin_path),
         gazebo_world,   # t=0s  Gazebo + mundo + gz_ros2_control
         spawn_robot,    # t=5s  robot spawnado con URDF directo
-        twist_stamped
+        twist_stamped,
+        imu_bridge
         # SIN robot_state_publisher → lo lanzas tú después con el launch 2
     ])

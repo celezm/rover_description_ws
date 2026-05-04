@@ -15,7 +15,7 @@ import os
 
 def generate_launch_description():
     description_file = LaunchConfiguration("description_file", default="robot.urdf.xacro")
-    use_sim_time = LaunchConfiguration("use_sim_time", default="false")
+    use_sim_time = LaunchConfiguration("use_sim_time", default="true")
 
     robot_description_content = Command([
         PathJoinSubstitution([FindExecutable(name="xacro")]),
@@ -82,9 +82,9 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        joint_state_publisher_node,
+        #joint_state_publisher_node,
         robot_state_publisher_node,
         rviz_node,
-        urjc_excavation,
-        gazebo_spawn_robot
+        #urjc_excavation,
+        #gazebo_spawn_robot
     ])

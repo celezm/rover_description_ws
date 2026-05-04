@@ -1,21 +1,9 @@
 <?xml version="1.0"?>
 <robot name="rover_wheels" xmlns:xacro="http://wiki.ros.org/xacro">
 
-  <!-- Dimensiones de rueda basadas en la inercia original del modelo:
-       mass=3.0, ixx=iyy=0.19403, izz=0.35189
-       Para un cilindro: izz = 0.5*m*r^2 → r = sqrt(2*izz/m) ≈ 0.485
-       Usamos r=0.30 (escala visual) y length=0.20 por compatibilidad con el ejemplo -->
-  <xacro:property name="wheel_radius"  value="0.30"/>
-  <xacro:property name="wheel_length"  value="0.20"/>
-  <xacro:property name="wheel_mass"    value="3.0"/>
-  <!-- Inercia de cilindro: ixx=iyy = m*(3r²+h²)/12, izz = m*r²/2 -->
-  <xacro:property name="wheel_ixx"    value="0.19403"/>
-  <xacro:property name="wheel_iyy"    value="0.19403"/>
-  <xacro:property name="wheel_izz"    value="0.13500"/>
+  <xacro:property name="mesh_path" value="file://$(find rover_description)/meshes/dae"/>
 
   <xacro:macro name="rover_wheels" params="parent">
-
-    <!-- ==================== EJES ESTRUCTURALES ==================== -->
 
     <joint name="axis_left_link_joint" type="fixed">
       <origin rpy="1.60974 -0.01480 -0.06763" xyz="-0.35085 -0.70000 -0.47400"/>
@@ -33,7 +21,7 @@
       <collision name="axis_left_collision">
         <origin rpy="-1.55093 0.07494 0.77002" xyz="-0.01304 0.01116 -0.07670"/>
         <geometry>
-          <box size="0.95 0.05 0.10"/>
+          <mesh filename="${mesh_path}/Cube.005.dae" scale="0.95000 0.05000 0.10000"/>
         </geometry>
       </collision>
       <inertial>
@@ -45,7 +33,7 @@
         <material name="orange"/>
         <origin rpy="-1.55093 0.07494 0.77002" xyz="-0.00365 -0.00204 -0.05382"/>
         <geometry>
-          <box size="0.95 0.05 0.10"/>
+          <mesh filename="${mesh_path}/Cube.005.dae" scale="0.95000 0.05000 0.10000"/>
         </geometry>
       </visual>
     </link>
@@ -54,7 +42,7 @@
       <collision name="axis_right_collision">
         <origin rpy="1.58831 -0.01751 -0.78555" xyz="-0.02891 0.01341 -0.04021"/>
         <geometry>
-          <box size="0.95 0.05 0.10"/>
+          <mesh filename="${mesh_path}/Cube.007.dae" scale="0.95000 0.05000 0.10000"/>
         </geometry>
       </collision>
       <inertial>
@@ -66,7 +54,7 @@
         <material name="orange"/>
         <origin rpy="1.58831 -0.01751 -0.78555" xyz="0.00095 0.00000 -0.03832"/>
         <geometry>
-          <box size="0.95 0.05 0.10"/>
+          <mesh filename="${mesh_path}/Cube.007.dae" scale="0.95000 0.05000 0.10000"/>
         </geometry>
       </visual>
     </link>
@@ -128,105 +116,129 @@
 
 
     <link name="back_left_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"><color rgba="0.1 0.1 0.1 1.0"/></material>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <collision name="back_left_wheel_collision">
+        <origin rpy="-0.00497 -0.00000 0.00000" xyz="-0.00000 0.00042 -0.12869"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.005.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="-0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00042 -0.12869"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="back_left_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00249 -0.00000 0.00000" xyz="-0.00000 0.00042 -0.12869"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.005.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
     <link name="front_left_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"/>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <collision name="front_left_wheel_collision">
+        <origin rpy="-0.00497 -0.00000 0.00000" xyz="0.00000 0.00043 -0.12796"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.009.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="-0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00043 -0.12796"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="front_left_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00249 -0.00000 0.00000" xyz="0.00000 0.00043 -0.12796"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.009.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
-    <link name="mid_left_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"/>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <link name="mid_left_wheel_link">
+      <collision name="mid_left_wheel_collision">
+        <origin rpy="-0.00497 -0.00000 0.00000" xyz="0.00000 0.00042 -0.12869"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.006.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="-0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00042 -0.12869"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="mid_left_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00249 -0.00000 0.00000" xyz="0.00000 0.00042 -0.12869"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.006.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
     <link name="back_right_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"/>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <collision name="back_right_wheel_collision">
+        <origin rpy="-3.14159 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="back_right_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
     <link name="front_right_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"/>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <collision name="front_right_wheel_collision">
+        <origin rpy="-3.14159 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.008.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="front_right_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.008.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
     <link name="mid_right_wheel_link">
-      <inertial>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <mass value="${wheel_mass}"/>
-        <inertia ixx="${wheel_ixx}" ixy="0" ixz="0" iyy="${wheel_iyy}" iyz="0" izz="${wheel_izz}"/>
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
-        <material name="wheel_black"/>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-        <geometry><cylinder length="${wheel_length}" radius="${wheel_radius}"/></geometry>
+      <collision name="mid_right_wheel_collision">
+        <origin rpy="-3.14159 0.00000 0.00000" xyz="-0.00000 0.00000 0.11498"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.007.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
       </collision>
+      <inertial>
+        <inertia ixx="0.19403" ixy="0.00000" ixz="0.00000" iyy="0.35189" iyz="-0.00000" izz="0.19403"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <mass value="3.00000"/>
+      </inertial>
+      <visual name="mid_right_wheel">
+        <material name="wheels"/>
+        <origin rpy="-0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
+        <geometry>
+          <mesh filename="${mesh_path}/Torus.007.dae" scale="0.40000 0.40000 0.70000"/>
+        </geometry>
+      </visual>
     </link>
 
     <gazebo reference="back_left_wheel_link">
@@ -253,6 +265,10 @@
       <mu1>5</mu1>
       <mu2>5</mu2>
     </gazebo>
+
+    <material name="wheels">
+      <color rgba="0.01176 0.01176 0.01176 1.00000"/>
+    </material>
 
   </xacro:macro>
 
