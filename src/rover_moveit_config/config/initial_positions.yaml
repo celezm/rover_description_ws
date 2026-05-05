@@ -1,0 +1,9 @@
+# Default initial positions for rover's ros2_control fake system
+
+initial_positions:
+  clamp_base_link_joint: 0
+  l1_arm_link_joint: 0
+  l2_arm_link_joint: 0
+  l3_arm_link_joint: 0
+  left_clamp_link_joint: 0
+  right_clamp_link_joint: 0
