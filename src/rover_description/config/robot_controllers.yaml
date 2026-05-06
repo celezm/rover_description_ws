@@ -60,10 +60,10 @@ controller_manager:
 /**/scara_controller:
   ros__parameters:
     joints:
-      - joint_0
-      - joint_1
-      - joint_2
-      - joint_3
+      - l1_arm_link_joint
+      - l2_arm_link_joint
+      - l3_arm_link_joint
+      - clamp_base_link_joint
     command_interfaces:
       - position
     state_interfaces:
@@ -74,8 +74,8 @@ controller_manager:
 /**/gripper_controller:
   ros__parameters:
     joints:
-      - joint_left_finger
-      - joint_right_finger
+      - left_clamp_link_joint
+      - right_clamp_link_joint
     command_interfaces:
       - position
     state_interfaces:

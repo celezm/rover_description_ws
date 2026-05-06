@@ -5,10 +5,12 @@
     <!-- Import rover urdf file -->
     <xacro:include filename="$(find rover_description)/robots/robot.urdf.xacro" />
 
+    <xacro:include filename="rover.srdf"/>
+
     <!-- Import control_xacro -->
     <xacro:include filename="rover.ros2_control.xacro" />
 
 
-    <xacro:rover_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+    <xacro:rover_ros2_control name="ScaraArm" initial_positions_file="$(arg initial_positions_file)"/>
 
 </robot>

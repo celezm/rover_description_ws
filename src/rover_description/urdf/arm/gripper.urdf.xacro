@@ -1,44 +1,24 @@
 <?xml version="1.0"?>
 <robot name="gripper" xmlns:xacro="http://wiki.ros.org/xacro">
-    <xacro:macro name="gripper">
+    <xacro:macro name="gripper" params="parent *origin">
     <xacro:property name="mesh_path" value="file://$(find rover_description)/meshes/dae"/>
     
 
     <joint name="left_clamp_link_joint" type="prismatic">
         <limit lower="0.00000" upper="0.40000" effort="0.00000" velocity="0.00000"/>
         <origin rpy="-1.57080 0.00000 0.00000" xyz="0.01328 -0.34694 -0.48139"/>
-        <parent link="clamp_base_link"/>
+        <parent link="${parent}"/>
         <child link="left_clamp_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="right_clamp_link_joint" type="prismatic">
         <limit lower="0.00000" upper="0.40000" effort="0.00000" velocity="0.00000"/>
         <origin rpy="1.57080 0.00000 0.00000" xyz="0.01328 0.35306 -0.50058"/>
-        <parent link="clamp_base_link"/>
+        <parent link="${parent}"/>
         <child link="right_clamp_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
 
-    <link name="clamp_base_link">
-    <collision name="clamp_base_collision">
-        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
-        <geometry>
-        <mesh filename="${mesh_path}/Cylinder.005.dae" scale="0.25000 0.45000 0.05000"/>
-        </geometry>
-    </collision>
-    <inertial>
-        <inertia ixx="0.02557" ixy="-0.00000" ixz="0.00000" iyy="0.00818" iyz="-0.00000" izz="0.03291"/>
-        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
-        <mass value="0.50000"/>
-    </inertial>
-    <visual name="clamp_base">
-        <material name="Material.005"/>
-        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
-        <geometry>
-        <mesh filename="${mesh_path}/Cylinder.005.dae" scale="0.25000 0.45000 0.05000"/>
-        </geometry>
-    </visual>
-    </link>
     <link name="left_clamp_link">
     <collision name="left_clamp_collision">
         <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 0.02217 0.00000"/>

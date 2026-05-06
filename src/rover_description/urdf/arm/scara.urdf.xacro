@@ -11,39 +11,38 @@
         <child link="fixed_base_arm_link"/>
     </joint>
 
-    <xacro:gripper/>
-
-    <joint name="gripper_to_arm_joint" type="fixed">
-      <parent link="l3_arm_link"/>
-      <child link="clamp_base_link"/>
-      <origin xyz="-0.00223 -0.00306 -0.95588" rpy="0 0 0"/>
-    </joint>
-
     <joint name="l0_arm_link_joint" type="fixed">
         <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.04593"/>
         <parent link="fixed_base_arm_link"/>
         <child link="l0_arm_link"/>
     </joint>
     <joint name="l1_arm_link_joint" type="continuous">
-        <limit effort="0.00000" velocity="0.00000"/>
+        <limit effort="50.00000" velocity="1.50000"/>
         <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00480 1.93831"/>
         <parent link="l0_arm_link"/>
         <child link="l1_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="l2_arm_link_joint" type="revolute">
-        <limit lower="-3.14000" upper="3.14000" effort="0.00000" velocity="0.00000"/>
+        <limit lower="-3.14000" upper="3.14000" effort="50.00000" velocity="1.50000"/>
         <origin rpy="0.00000 0.00000 1.57080" xyz="0.04172 1.09520 0.15762"/>
         <parent link="l1_arm_link"/>
         <child link="l2_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="l3_arm_link_joint" type="prismatic">
-        <limit lower="-2.40000" upper="0.80000" effort="0.00000" velocity="0.00000"/>
+        <limit lower="-2.40000" upper="0.80000" effort="50.00000" velocity="1.50000"/>
         <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00000 -1.26247 0.09521"/>
         <parent link="l2_arm_link"/>
         <child link="l3_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
+    </joint>
+    <joint name="clamp_base_link_joint" type="continuous">
+      <limit effort="50.00000" velocity="1.50000"/>
+      <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00223 -0.00306 -0.95588"/>
+      <parent link="l3_arm_link"/>
+      <child link="clamp_base_link"/>
+      <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
 
     <link name="fixed_base_arm_link">
@@ -147,6 +146,31 @@
       </geometry>
     </visual>
   </link>
+
+  <link name="clamp_base_link">
+    <collision name="clamp_base_collision">
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
+        <geometry>
+        <mesh filename="${mesh_path}/Cylinder.005.dae" scale="0.25000 0.45000 0.05000"/>
+        </geometry>
+    </collision>
+    <inertial>
+        <inertia ixx="0.02557" ixy="-0.00000" ixz="0.00000" iyy="0.00818" iyz="-0.00000" izz="0.03291"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
+        <mass value="0.50000"/>
+    </inertial>
+    <visual name="clamp_base">
+        <material name="Material.005"/>
+        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.08713"/>
+        <geometry>
+        <mesh filename="${mesh_path}/Cylinder.005.dae" scale="0.25000 0.45000 0.05000"/>
+        </geometry>
+    </visual>
+  </link>
+
+  <xacro:gripper parent="clamp_base_link">
+    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00223 -0.00306 -0.95588"/>
+  </xacro:gripper>
 
 </xacro:macro>
 </robot>

@@ -26,7 +26,6 @@ scara_controller:
     state_interfaces:
       - position
       - velocity
-      - effort
     allow_nonzero_velocity_at_trajectory_end: true
 gripper_controller:
   ros__parameters:
@@ -38,5 +37,4 @@ gripper_controller:
     state_interfaces:
       - position
       - velocity
-      - effort
     allow_nonzero_velocity_at_trajectory_end: true
