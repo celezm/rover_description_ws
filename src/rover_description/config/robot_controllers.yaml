@@ -32,12 +32,12 @@ controller_manager:
       - mid_right_wheel_link_joint
       - back_right_wheel_link_joint
 
-    wheel_separation: 1.90
+    wheel_separation: 1.0
     wheel_radius: 0.5
 
     wheel_separation_multiplier: 1.0
-    left_wheel_radius_multiplier: -1.0
-    right_wheel_radius_multiplier: -1.0
+    left_wheel_radius_multiplier: 1.0
+    right_wheel_radius_multiplier: 1.0
 
     base_frame_id: base_footprint
     enable_odom_tf: true

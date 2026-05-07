@@ -18,8 +18,13 @@ moveit_simple_controller_manager:
     action_ns: follow_joint_trajectory
     default: true
     use_sim_time: true
+
   gripper_controller:
     type: FollowJointTrajectory
     joints:
       - left_clamp_link_joint
       - right_clamp_link_joint
+    action_ns: follow_joint_trajectory
+    default: true
+    use_sim_time: true
+    
