@@ -26,8 +26,8 @@
     <!-- LEFT -->
     <joint name="front_left_wheel_link_joint">
       <command_interface name="velocity">
-        <param name="min">-10</param>
-        <param name="max">10</param>
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
       </command_interface>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
@@ -85,8 +85,50 @@
       <state_interface name="effort"/>
     </joint>
 
+    <!-- SCARA arm -->
+    <joint name="l1_arm_link_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="l2_arm_link_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="l3_arm_link_joint">
+      <command_interface name="position">
+        <param name="min">-2.4</param>
+        <param name="max">0.8</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <joint name="clamp_base_link_joint">
+      <command_interface name="position">
+        <param name="min">-3.14</param>
+        <param name="max">3.14</param>
+      </command_interface>
+      <state_interface name="position"/>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+
+    <!-- Gripper -->
     <joint name="left_clamp_link_joint">
-      <command_interface name="velocity">
+      <command_interface name="position">
         <param name="min">-10</param>
         <param name="max">10</param>
       </command_interface>
@@ -96,7 +138,7 @@
     </joint>
 
     <joint name="right_clamp_link_joint">
-      <command_interface name="velocity">
+      <command_interface name="position">
         <param name="min">-10</param>
         <param name="max">10</param>
       </command_interface>

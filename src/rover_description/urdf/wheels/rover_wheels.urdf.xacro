@@ -60,7 +60,7 @@
     </link>
 
     <joint name="back_left_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="-0.03655 0.06700 -0.01743" xyz="-1.43329 -0.48979 0.41533"/>
       <parent link="axis_left_link"/>
@@ -69,7 +69,7 @@
     </joint>
 
     <joint name="front_left_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="-0.03655 0.06700 -0.01743" xyz="1.55952 -0.54195 0.21447"/>
       <parent link="axis_left_link"/>
@@ -78,7 +78,7 @@
     </joint>
 
     <joint name="mid_left_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="-0.03655 0.06700 -0.01743" xyz="0.06311 -0.51587 0.31490"/>
       <parent link="axis_left_link"/>
@@ -88,7 +88,7 @@
 
 
     <joint name="back_right_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="3.14159 -0.02477 -0.00000" xyz="-1.45614 0.52600 0.26402"/>
       <parent link="axis_right_link"/>
@@ -97,7 +97,7 @@
     </joint>
 
     <joint name="front_right_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="3.14159 -0.02477 -0.00000" xyz="1.54294 0.52600 0.33832"/>
       <parent link="axis_right_link"/>
@@ -106,7 +106,7 @@
     </joint>
 
     <joint name="mid_right_wheel_link_joint" type="continuous">
-      <limit effort="50.0" velocity="20.0"/>
+      <limit effort="100.0" velocity="20.0"/>
       <dynamics damping="0.05" friction="0.1"/>
       <origin rpy="3.14159 -0.02477 -0.00000" xyz="0.04340 0.52600 0.30117"/>
       <parent link="axis_right_link"/>
@@ -119,7 +119,7 @@
       <collision name="back_left_wheel_collision">
         <origin rpy="-0.00497 -0.00000 0.00000" xyz="-0.00000 0.00042 -0.12869"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.005.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>
@@ -140,7 +140,7 @@
       <collision name="front_left_wheel_collision">
         <origin rpy="-0.00497 -0.00000 0.00000" xyz="0.00000 0.00043 -0.12796"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.009.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>
@@ -161,7 +161,7 @@
       <collision name="mid_left_wheel_collision">
         <origin rpy="-0.00497 -0.00000 0.00000" xyz="0.00000 0.00042 -0.12869"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.006.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>
@@ -182,7 +182,7 @@
       <collision name="back_right_wheel_collision">
         <origin rpy="-3.14159 0.00000 0.00000" xyz="-0.00000 0.00000 0.10000"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>
@@ -203,7 +203,7 @@
       <collision name="front_right_wheel_collision">
         <origin rpy="-3.14159 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.008.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>
@@ -224,7 +224,7 @@
       <collision name="mid_right_wheel_collision">
         <origin rpy="-3.14159 0.00000 0.00000" xyz="-0.00000 0.00000 0.11498"/>
         <geometry>
-          <mesh filename="${mesh_path}/Torus.007.dae" scale="0.40000 0.40000 0.70000"/>
+          <cylinder length="0.2" radius="0.5"/>
         </geometry>
       </collision>
       <inertial>

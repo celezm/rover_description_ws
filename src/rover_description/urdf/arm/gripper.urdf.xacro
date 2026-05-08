@@ -5,14 +5,14 @@
     
 
     <joint name="left_clamp_link_joint" type="prismatic">
-        <limit lower="0.00000" upper="0.40000" effort="50.00000" velocity="1.50000"/>
+        <limit lower="-0.01000" upper="0.40000" effort="150.00000" velocity="1.50000"/>
         <origin rpy="-1.57080 0.00000 0.00000" xyz="0.01328 -0.34694 -0.48139"/>
         <parent link="${parent}"/>
         <child link="left_clamp_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="right_clamp_link_joint" type="prismatic">
-        <limit lower="0.00000" upper="0.40000" effort="50.00000" velocity="1.50000"/>
+        <limit lower="-0.01000" upper="0.40000" effort="150.00000" velocity="1.50000"/>
         <origin rpy="1.57080 0.00000 0.00000" xyz="0.01328 0.35306 -0.50058"/>
         <parent link="${parent}"/>
         <child link="right_clamp_link"/>
