@@ -1,1 +1,0 @@
-/home/claudia-elez/Desktop/rover_description_ws/build/rover_moveit_config/ament_cmake_core/rover_moveit_configConfig-version.cmake

@@ -1,1 +1,0 @@
-/home/claudia-elez/Desktop/rover_description_ws/src/rover_moveit_config/launch/move_group.launch.py
