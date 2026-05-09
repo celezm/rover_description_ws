@@ -1,0 +1,98 @@
+[0.008s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/claudia-elez/Desktop/rover_description_ws/src/rover_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/claudia-elez/Desktop/rover_description_ws/install/rover_description
+[0.106s] -- The C compiler identification is GNU 13.3.0
+[0.181s] -- The CXX compiler identification is GNU 13.3.0
+[0.195s] -- Detecting C compiler ABI info
+[0.269s] -- Detecting C compiler ABI info - done
+[0.274s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.274s] -- Detecting C compile features
+[0.275s] -- Detecting C compile features - done
+[0.283s] -- Detecting CXX compiler ABI info
+[0.354s] -- Detecting CXX compiler ABI info - done
+[0.360s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.360s] -- Detecting CXX compile features
+[0.360s] -- Detecting CXX compile features - done
+[0.365s] -- Found ament_cmake: 2.5.6 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.469s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.519s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.557s] -- Found ament_lint_auto: 0.17.5 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[0.642s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.642s] -- Configured 'flake8' exclude dirs and/or files: 
+[0.643s] -- Added test 'lint_cmake' to check CMake code style
+[0.643s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.645s] -- Added test 'xmllint' to check XML markup files
+[0.647s] -- Configuring done (0.6s)
+[0.648s] -- Generating done (0.0s)
+[0.650s] -- Build files have been written to: /home/claudia-elez/Desktop/rover_description_ws/build/rover_description
+[0.653s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/claudia-elez/Desktop/rover_description_ws/src/rover_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/claudia-elez/Desktop/rover_description_ws/install/rover_description
+[0.654s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/claudia-elez/Desktop/rover_description_ws/build/rover_description -- -j20 -l20
+[0.683s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/claudia-elez/Desktop/rover_description_ws/build/rover_description -- -j20 -l20
+[0.690s] Invoking command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/claudia-elez/Desktop/rover_description_ws/build/rover_description
+[0.695s] -- Install configuration: ""
+[0.695s] -- Execute custom install script
+[0.695s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/arm/gripper.urdf.xacro
+[0.702s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/arm/scara.urdf.xacro
+[0.708s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/base/robot_base.urdf.xacro
+[0.715s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/ros2_control.urdf.xacro
+[0.721s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/sensors/camera.urdf.xacro
+[0.726s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/sensors/imu_sensor.urdf.xacro
+[0.731s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/urdf/wheels/rover_wheels.urdf.xacro
+[0.739s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.003.dae
+[0.744s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.003.dae_history.log
+[0.749s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.004.dae
+[0.756s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.004.dae_history.log
+[0.763s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.005.dae
+[0.770s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.005.dae_history.log
+[0.776s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.007.dae
+[0.783s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cube.007.dae_history.log
+[0.789s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.001.dae
+[0.796s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.001.dae_history.log
+[0.802s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.002.dae
+[0.808s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.002.dae_history.log
+[0.816s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.003.dae
+[0.823s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.003.dae_history.log
+[0.829s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.004.dae
+[0.835s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.004.dae_history.log
+[0.843s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.005.dae
+[0.849s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.005.dae_history.log
+[0.855s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.dae
+[0.861s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Cylinder.dae_history.log
+[0.867s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.005.dae
+[0.872s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.005.dae_history.log
+[0.879s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.006.dae
+[0.885s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.006.dae_history.log
+[0.891s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.007.dae
+[0.896s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.007.dae_history.log
+[0.903s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.008.dae
+[0.908s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.008.dae_history.log
+[0.914s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.009.dae
+[0.920s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.009.dae_history.log
+[0.926s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.dae
+[0.932s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/meshes/dae/Torus.dae_history.log
+[0.940s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/robot_controller.launch.py
+[0.946s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/robot_gazebo.launch.py
+[0.952s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/robot_joint_gui.launch.py
+[0.959s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/robot_st_pub.launch.py
+[0.965s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/robot_state_publisher.launch.py
+[0.971s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/launch/spawn_robot.launch.py
+[0.977s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/robots/robot.urdf.xacro
+[0.984s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/rviz/robot.rviz
+[0.991s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/rviz/robot_moveit.rviz
+[1.000s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/config/config_completa
+[1.007s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/config/robot_controllers.yaml
+[1.014s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/config/rover_bridge.yaml
+[1.022s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/ament_index/resource_index/package_run_dependencies/rover_description
+[1.029s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/ament_index/resource_index/parent_prefix_path/rover_description
+[1.036s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.sh
+[1.044s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/environment/ament_prefix_path.dsv
+[1.052s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/environment/path.sh
+[1.058s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/environment/path.dsv
+[1.065s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/local_setup.bash
+[1.073s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/local_setup.sh
+[1.080s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/local_setup.zsh
+[1.086s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/local_setup.dsv
+[1.094s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/package.dsv
+[1.104s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/ament_index/resource_index/packages/rover_description
+[1.112s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig.cmake
+[1.120s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/cmake/rover_descriptionConfig-version.cmake
+[1.127s] -- Symlinking: /home/claudia-elez/Desktop/rover_description_ws/install/rover_description/share/rover_description/package.xml
+[1.135s] Invoked command in '/home/claudia-elez/Desktop/rover_description_ws/build/rover_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/claudia-elez/Desktop/rover_description_ws/build/rover_description

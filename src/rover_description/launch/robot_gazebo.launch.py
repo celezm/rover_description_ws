@@ -125,7 +125,10 @@ def generate_launch_description():
                 'launch',
                 'rsp.launch.py'
             ]
-        )
+        ),
+        launch_arguments={
+            'use_sim_time': LaunchConfiguration('use_sim_time'),
+        }.items(),
     )
 
     start_gazebo_server_cmd = OpaqueFunction(
@@ -147,6 +150,11 @@ def generate_launch_description():
         name="rviz2",
         output="log",
         arguments=["-d", rviz_config_file],
+        parameters=[
+            {
+                "use_sim_time": LaunchConfiguration("use_sim_time"),
+            },
+        ],
     )
 
     # Spawning robot
@@ -233,8 +241,8 @@ def generate_launch_description():
         )
     )
 
-    ld.add_action(robot_description_launcher)
     ld.add_action(declare_sim_time)
+    ld.add_action(robot_description_launcher)
     ld.add_action(bridge)
     ld.add_action(gz_image_bridge_node)
     ld.add_action(start_gazebo_server_cmd)

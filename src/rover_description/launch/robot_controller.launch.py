@@ -32,23 +32,19 @@ def generate_launch_description():
         )
     ])
 
-    arm_pkg_share_folder = get_package_share_directory('rover_moveit_config')
-
-    
     arm_controller = GroupAction([
         generate_load_controller_launch_description(
             controller_name="scara_controller",
-            controller_params_file=join(arm_pkg_share_folder, 'config', 'ros2_controllers.yaml')
+            controller_params_file=controllers_file
         )
     ])
 
     gripper_controller = GroupAction([
         generate_load_controller_launch_description(
             controller_name="gripper_controller",
-            controller_params_file=join(arm_pkg_share_folder, 'config', 'ros2_controllers.yaml')
+            controller_params_file=controllers_file
         )
     ])
-    
 
     return LaunchDescription([
         declare_use_sim_time,

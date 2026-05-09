@@ -4,7 +4,7 @@
 - **Asignatura:** Modelado y Simulación de Robots
 
 # Introducción
-Esta práctica consisten en teleoperar un rover, diseñado en prácticas anteriores, utilizando ROS y MoveIt. Para ello, esta práctica se ha dividido en 2 partes:
+Esta práctica consiste en teleoperar un rover, diseñado en prácticas anteriores, utilizando ROS y MoveIt. Para ello, esta práctica se ha dividido en 2 partes:
 - **Parte A:** Introducción a xacro y compatibilidad con los estándares REP-103 y REP-105
 - **Parte B:** Configuración de MoveIt, secuencia de acciones y análisis de costes.
 
@@ -28,7 +28,7 @@ Esta parte consiste en la ejecución de las siguientes acciones:
 
 ## Configuración y ejecución de las acciones
 
-Para esta parte, el SCARA se ha configurado con el MoveIt Assistant, esta configuración se encuentra en el paquete [rover_moveit_config](./src/rover_moveit_config/) y las ruedas del SCARA se teleoperan mediante el nodo 'teleop_twist_keyboard'.
+Para esta parte, el SCARA se ha configurado con el MoveIt Assistant, esta configuración se encuentra en el paquete [rover_moveit_config](./src/rover_moveit_config/) y las ruedas del rover se teleoperan mediante el nodo 'teleop_twist_keyboard'.
 
 Para la teleoperación, lanzamos los siguientes comandos (cada uno en una terminal):
 ```bash
@@ -38,6 +38,10 @@ ros2 launch rover_description robot_controller.launch.py
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
+Para grabar las rosbag:
+```bash
+ros2 bag record /cmd_vel /imu /joint_states -o practicafinal
+```
 ## Imágenes de la ejecución
 
 ### Captura 1: Agarrando el cubo verde
@@ -86,3 +90,9 @@ Respecto a las componenetes en x e y, observamos que se mantienen a 0 en gran pa
 ### Gasto vs Tiempo
 ![ruedas_vs_tiempo](./graficas/gasto_scara_vs_tiempo.png)
 Esta gráfica representa el esfuerzo mecánico asociado al mecanismo pick and place.
+
+Al inicio de la ejecución, el gasto se mantiene bastante bejo, esto se debe a que el brazo permanece quieto mientras que se coloca el rover. A partir de los 3 segundos ya aparecen los primeros "picos de gasto", que pueden deberse al movimiento del brazo y al agarre de la pieza.
+
+Entre los 160 y 250 segundos, se observa una reducción de gasto bastante considerable, esto puede deberse a que en este punto ya se ha soltado el primer cubo y se está colocando el rover para agarrar el segundo cubo. A partir de ahí vuelven a aparecer los picos, que se deben al esfuerzo de mover el brazo hasta encima del otro cubo con el cubo azul agarrado.
+
+Al final, se observa otra reducción del gasto, que podemos asociar con la última acción de la secuencia, mover el rover en línea recta 10m, puesto que el brazo debe permanecer inmóvil.

@@ -1,0 +1,1 @@
+/home/claudia-elez/Desktop/rover_description_ws/src/rover_moveit_config/launch/setup_assistant.launch.py

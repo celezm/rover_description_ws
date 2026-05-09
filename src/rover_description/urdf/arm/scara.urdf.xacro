@@ -17,28 +17,28 @@
         <child link="l0_arm_link"/>
     </joint>
     <joint name="l1_arm_link_joint" type="continuous">
-        <limit effort="150.00000" velocity="2.50000"/>
+        <limit effort="150.00000" velocity="3.00000"/>
         <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00480 1.93831"/>
         <parent link="l0_arm_link"/>
         <child link="l1_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="l2_arm_link_joint" type="continuous">
-        <limit effort="150.00000" velocity="2.50000"/>
+        <limit effort="150.00000" velocity="3.00000"/>
         <origin rpy="0.00000 0.00000 1.57080" xyz="0.04172 1.09520 0.15762"/>
         <parent link="l1_arm_link"/>
         <child link="l2_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="l3_arm_link_joint" type="prismatic">
-        <limit lower="-2.40000" upper="0.80000" effort="150.00000" velocity="2.50000"/>
+        <limit lower="-2.40000" upper="0.80000" effort="150.00000" velocity="3.00000"/>
         <origin rpy="0.00000 0.00000 -1.57080" xyz="0.00000 -1.26247 0.09521"/>
         <parent link="l2_arm_link"/>
         <child link="l3_arm_link"/>
         <axis xyz="0.00000 0.00000 1.00000"/>
     </joint>
     <joint name="clamp_base_link_joint" type="continuous">
-      <limit effort="150.00000" velocity="2.50000"/>
+      <limit effort="150.00000" velocity="3.00000"/>
       <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00223 -0.00306 -0.95588"/>
       <parent link="l3_arm_link"/>
       <child link="clamp_base_link"/>

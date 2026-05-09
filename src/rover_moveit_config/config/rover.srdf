@@ -42,17 +42,23 @@
         <joint name="l2_arm_link_joint" value="1.7175"/>
         <joint name="l3_arm_link_joint" value="-0.968"/>
     </group_state>
+    <group_state name="hold_targer" group="scara">
+        <joint name="clamp_base_link_joint" value="-3.1415"/>
+        <joint name="l1_arm_link_joint" value="-1.6141"/>
+        <joint name="l2_arm_link_joint" value="1.7175"/>
+        <joint name="l3_arm_link_joint" value="-2.2641"/>
+    </group_state>
     <group_state name="target" group="scara">
         <joint name="clamp_base_link_joint" value="0"/>
         <joint name="l1_arm_link_joint" value="0"/>
         <joint name="l2_arm_link_joint" value="0"/>
-        <joint name="l3_arm_link_joint" value="-2.0464"/>
+        <joint name="l3_arm_link_joint" value="-2.2464"/>
     </group_state>
     <group_state name="release" group="scara">
         <joint name="clamp_base_link_joint" value="0"/>
-        <joint name="l1_arm_link_joint" value="1.7183"/>
+        <joint name="l1_arm_link_joint" value="1.6877"/>
         <joint name="l2_arm_link_joint" value="1.4399"/>
-        <joint name="l3_arm_link_joint" value="0.5525"/>
+        <joint name="l3_arm_link_joint" value="0.3345"/>
     </group_state>
     <group_state name="left_cube" group="scara">
         <joint name="clamp_base_link_joint" value="0"/>
@@ -60,11 +66,23 @@
         <joint name="l2_arm_link_joint" value="1.5787"/>
         <joint name="l3_arm_link_joint" value="-2.0641"/>
     </group_state>
+    <group_state name="left_hold" group="scara">
+        <joint name="clamp_base_link_joint" value="0"/>
+        <joint name="l1_arm_link_joint" value="0"/>
+        <joint name="l2_arm_link_joint" value="1.5787"/>
+        <joint name="l3_arm_link_joint" value="-1.0000"/>
+    </group_state>
     <group_state name="right_cube" group="scara">
         <joint name="clamp_base_link_joint" value="0"/>
         <joint name="l1_arm_link_joint" value="3.0374"/>
         <joint name="l2_arm_link_joint" value="1.5787"/>
-        <joint name="l3_arm_link_joint" value="-2.0641"/>
+        <joint name="l3_arm_link_joint" value="-2.2641"/>
+    </group_state>
+        <group_state name="right_hold" group="scara">
+        <joint name="clamp_base_link_joint" value="0"/>
+        <joint name="l1_arm_link_joint" value="3.0374"/>
+        <joint name="l2_arm_link_joint" value="1.5787"/>
+        <joint name="l3_arm_link_joint" value="-1.0641"/>
     </group_state>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="gripper" parent_link="clamp_base_link" group="gripper" parent_group="scara"/>
@@ -208,6 +226,7 @@
     <disable_collisions link1="l1_arm_link" link2="mid_right_wheel_link" reason="Never"/>
     <disable_collisions link1="l2_arm_link" link2="l3_arm_link" reason="Adjacent"/>
     <disable_collisions link1="l2_arm_link" link2="left_clamp_link" reason="Never"/>
+    <disable_collisions link1="l2_arm_link" link2="right_clamp_link" reason="Never"/>
     <disable_collisions link1="l2_arm_link" link2="mid_left_wheel_link" reason="Never"/>
     <disable_collisions link1="l2_arm_link" link2="mid_right_wheel_link" reason="Never"/>
     <disable_collisions link1="l3_arm_link" link2="left_clamp_link" reason="Never"/>

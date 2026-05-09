@@ -19,11 +19,20 @@
       </inertial>
     </link>
 
+    <joint name="${frame_prefix}camera_optical_joint" type="fixed">
+      <origin xyz="0 0 0" rpy="-1.5707963267948966 0 -1.5707963267948966"/>
+      <parent link="${frame_prefix}camera_frame"/>
+      <child link="${frame_prefix}camera_optical_frame"/>
+    </joint>
+
+    <link name="${frame_prefix}camera_optical_frame"/>
+
     <gazebo reference="${frame_prefix}camera_frame">
       <sensor name="${frame_prefix}sensor" type="camera">
         <always_on>true</always_on>
         <visualize>true</visualize>
         <update_rate>30</update_rate>
+        <gz_frame_id>${frame_prefix}camera_optical_frame</gz_frame_id>
         <topic>${node_namespace}/${node_name}/image</topic>
 
         <camera>
