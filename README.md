@@ -1,7 +1,6 @@
 # Práctica 3: Simulación de Robots usando middleware
-
+Repositorio para la práctica final de la asignatura de 'Modelado y Simulación de Robots'. Ingeniería de Robótica Software.
 - **Autor:** Claudia Élez Mencía
-- **Asignatura:** Modelado y Simulación de Robots
 
 # Introducción
 Esta práctica consiste en teleoperar un rover, diseñado en prácticas anteriores, utilizando ROS y MoveIt. Para ello, esta práctica se ha dividido en 2 partes:
@@ -38,7 +37,7 @@ ros2 launch rover_description robot_controller.launch.py
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-Para grabar las rosbag:
+Para grabar la rosbag:
 ```bash
 ros2 bag record /cmd_vel /imu /joint_states -o practicafinal
 ```
