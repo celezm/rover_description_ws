@@ -18,7 +18,7 @@ Para poder visualizar el rover en Rviz, se debe lanzar el siguiente launcher:
 ros2 launch rover_description robot_joint_gui.launch.py
 ```
 
-La estructura final de TFs se encuentra en [model_tfs](frames_2026-04-30_10.05.00.pdf).
+La estructura final de TFs se encuentra en [model_tfs](frames_2026-05-08_20.07.36.pdf).
 
 # Parte B
 Esta parte consiste en la ejecución de las siguientes acciones:
