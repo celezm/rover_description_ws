@@ -55,7 +55,8 @@ Se pueden observar más imágenes de la ejecución en la carpeta [docs](./docs).
 
 A lo largo de la ejecución, se ha grabado una rosbag que contiene los topics '/imu', '/joint_states', '/cmd_vel' para poder analizar el coste a lo largo de las acciones.
 
-- Enlace de descarga de la rosbag: [practicafinal](https://urjc-my.sharepoint.com/:f:/r/personal/c_elez_2023_alumnos_urjc_es/Documents/rosbag_practica_final_msr?csf=1&web=1&e=Fc2KvS)
+- Enlace de descarga de la rosbag: [practicafinal](https://urjc-my.sharepoint.com/:f:/g/personal/c_elez_2023_alumnos_urjc_es/IgCR5gzZ3B9VRb9uVEJEynCGAc1eqUWPz8FMa5CzYwVexgQ?e=0kK9c5)
+- En caso de error, está subida en [practicafinal](./practicafinal)
 
 Además, gracias al script [rosbag_analysis.py](./rosbag_analysis.py) hemos obtenido las siguientes gráficas:
 
